@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:war_card_game/models/deck.dart';
 import 'package:war_card_game/widgets/card_widget.dart';
-
+// ignore: depend_on_referenced_packages
 import '../models/global.dart';
 
 class GamePage extends StatefulWidget {
@@ -41,10 +41,7 @@ class _GamePageState extends State<GamePage> {
         children: [
           const Text(
             'War Card Game',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+            // style: GoogleFonts.getFont('Lato'),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -9,7 +9,7 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100 * 500 / 724,
+      width: 100 * 2 / 3,
       height: 100,
       margin: const EdgeInsets.only(top: 20),
       child: Card(
