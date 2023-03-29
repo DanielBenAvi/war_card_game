@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:war_card_game/models/deck.dart';
 import 'package:war_card_game/widgets/card_widget.dart';
 
+import '../models/global.dart';
+
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
 
@@ -12,6 +14,8 @@ class GamePage extends StatefulWidget {
 class _GamePageState extends State<GamePage> {
   late Deck deck1 = Deck();
   late Deck deck2 = Deck();
+  late String card1 = cardBack;
+  late String card2 = cardBack;
   @override
   void initState() {
     super.initState();
@@ -24,20 +28,30 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: 80,
-          child: ListView(
-            padding: EdgeInsets.only(top: 50),
-            addAutomaticKeepAlives: true,
-            children: [
-              CardWidget(imagePath: deck1.cardBack),
-              CardWidget(imagePath: deck1.cards[0].imagePath),
-              CardWidget(imagePath: deck2.cards[0].imagePath),
-              CardWidget(imagePath: deck1.cardBack),
-            ],
+      body: Column(
+        children: [
+          const Text(
+            'War Card Game',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
+          const SizedBox(height: 20),
+          Center(
+            child: SizedBox(
+              width: 80,
+              child: Column(
+                children: [
+                  const CardWidget(imagePath: cardBack),
+                  CardWidget(imagePath: card1),
+                  CardWidget(imagePath: card2),
+                  const CardWidget(imagePath: cardBack),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

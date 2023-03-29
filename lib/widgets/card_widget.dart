@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CardWidget extends StatelessWidget {
   final String imagePath;
@@ -20,9 +21,10 @@ class CardWidget extends StatelessWidget {
           ),
         ),
         elevation: 10,
-        child: Image.asset(
+        child: SvgPicture.asset(
           imagePath,
           height: 100,
+          width: 50,
         ),
       ),
     );
