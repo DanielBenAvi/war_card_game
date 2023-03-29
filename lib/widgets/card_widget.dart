@@ -8,23 +8,19 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 100 * 500 / 724,
+      height: 100,
       margin: const EdgeInsets.only(top: 20),
-      width: 80,
       child: Card(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(5),
           ),
-          side: BorderSide(
-            color: Colors.black,
-            width: 1,
-          ),
         ),
-        elevation: 10,
+        elevation: 5,
         child: SvgPicture.asset(
           imagePath,
-          height: 100,
-          width: 50,
+          fit: BoxFit.fill,
         ),
       ),
     );

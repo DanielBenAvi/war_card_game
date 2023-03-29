@@ -1,4 +1,5 @@
 import 'card.dart';
+import 'global.dart';
 
 class Deck {
   List<Card> cards = [];
@@ -69,5 +70,13 @@ class Deck {
   List<Card> shuffleCards() {
     cards.shuffle();
     return cards;
+  }
+
+  String drawCard() {
+    if (cards.isNotEmpty) {
+      return cards.removeAt(0).imagePath;
+    } else {
+      return cardBase;
+    }
   }
 }

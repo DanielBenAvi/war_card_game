@@ -14,8 +14,8 @@ class GamePage extends StatefulWidget {
 class _GamePageState extends State<GamePage> {
   late Deck deck1 = Deck();
   late Deck deck2 = Deck();
-  late String card1 = cardBack;
-  late String card2 = cardBack;
+  late String card1 = cardBase;
+  late String card2 = cardBase;
   @override
   void initState() {
     super.initState();
@@ -25,10 +25,19 @@ class _GamePageState extends State<GamePage> {
     deck2.shuffleCards();
   }
 
+  void nextRound() {
+    setState(() {
+      card1 = deck1.drawCard();
+      card2 = deck2.drawCard();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
             'War Card Game',
@@ -37,19 +46,23 @@ class _GamePageState extends State<GamePage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 20),
-          Center(
-            child: SizedBox(
-              width: 80,
-              child: Column(
-                children: [
-                  const CardWidget(imagePath: cardBack),
-                  CardWidget(imagePath: card1),
-                  CardWidget(imagePath: card2),
-                  const CardWidget(imagePath: cardBack),
-                ],
-              ),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CardWidget(imagePath: card1),
+              const CardWidget(imagePath: cardBack),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CardWidget(imagePath: card2),
+              const CardWidget(imagePath: cardBack),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: nextRound,
+            child: const Text('Play'),
           ),
         ],
       ),
