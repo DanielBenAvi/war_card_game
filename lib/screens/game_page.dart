@@ -44,7 +44,7 @@ class _GamePageState extends State<GamePage> {
           deck1.addCard(card2);
         } else if (card1.rank < card2.rank) {
           massage = 'Player 2 wins {P1:$len1,P2:$len2}';
-          deck1.addCard(card1);
+          deck2.addCard(card1);
           deck2.addCard(card2);
         } else if (card1.rank == card2.rank) {
           massage = 'Draw -> {P1:$len1,P2:$len2}';
